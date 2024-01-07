@@ -2,7 +2,7 @@
 import { CheckCircleIcon } from '@heroicons/vue/24/solid'
 import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline'
 
-const navItems: string[] = ['timeline', 'activities', 'progress']
+const navItems = { timeline: ClockIcon, activities: ListBulletIcon, progress: ChartBarIcon }
 </script>
 
 <template lang="pug">
@@ -22,14 +22,12 @@ main.main
 nav.navigation().shadow--top
   ul
     li(
-      v-for="page in navItems"
+      v-for="icon, page in navItems"
       :key="page"
       :href="`#${page}`"
       )
       a 
-        ClockIcon.nav-link__icon(v-if="page==='timeline'")
-        ListBulletIcon.nav-link__icon(v-else-if="page==='activities'")
-        ChartBarIcon.nav-link__icon(v-else="page==='activities'")
+        component(:is="icon").nav-link__icon        
         .nav-link__text {{page}}
 
 

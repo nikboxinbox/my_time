@@ -1,18 +1,17 @@
 <script setup lang="ts">
 import { CheckCircleIcon } from '@heroicons/vue/24/solid'
+import TheLogo from './TheLogo.vue'
 </script>
 <template lang="pug">
 header.header().shadow--bottom 
-  a(href="#")
-    img.logo(src="../assets/logo.png", alt="Logo")
-  a(href="#")
-    .section-right--complete(v-if="true")
-      div Day complete!
-      CheckCircleIcon.icon__check-circle
-    .section-right--progress(v-else) 
-      div Progress: 
-      span 20%
-      .round
+  TheLogo
+  .section-right--complete(v-if="true")
+    div Day complete!
+    CheckCircleIcon.icon__check-circle
+  .section-right--progress(v-else) 
+    div Progress: 
+    span 20%
+    .round
 </template>
 <style scoped lang="scss">
 .header {
@@ -24,9 +23,6 @@ header.header().shadow--bottom
   align-items: center;
   padding: 0.75rem;
   background-color: $white;
-  .logo {
-    height: 2.25rem;
-  }
 
   .section-right--complete {
     display: flex;

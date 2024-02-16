@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ClockIcon, ListBulletIcon, ChartBarIcon } from '@heroicons/vue/24/outline'
+import NavItem from './NavItem.vue';
 
 const navItems = { timeline: ClockIcon, activities: ListBulletIcon, progress: ChartBarIcon }
 </script>
@@ -8,14 +9,13 @@ const navItems = { timeline: ClockIcon, activities: ListBulletIcon, progress: Ch
 
 nav.navigation().shadow--top
   ul
-    li(
+    NavItem(
       v-for="icon, page in navItems"
       :key="page"
       :href="`#${page}`"
-      )
-      a 
-        component(:is="icon").nav-link__icon        
-        .nav-link__text {{page}}
+      ) 
+      component(:is="icon").nav-link__icon  
+      .nav-link__text {{page}}         
 
 </template>
 <style scoped lang="scss">
@@ -23,6 +23,7 @@ nav.navigation().shadow--top
   position: sticky;
   bottom: 0;
   background-color: $white;
+
   ul {
     display: flex;
     align-items: center;
@@ -39,6 +40,7 @@ nav.navigation().shadow--top
         width: 1.5rem;
         height: 1.5rem;
       }
+
       .nav-link__text {
         margin-top: 3px;
         font-size: 0.75rem;

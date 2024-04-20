@@ -28,6 +28,5 @@ li {
     line-height: 1rem;
     text-transform: capitalize;
   }
-
 }
 </style>

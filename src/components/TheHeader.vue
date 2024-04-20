@@ -1,26 +1,13 @@
-<script setup lang="ts">
-import { CheckCircleIcon } from '@heroicons/vue/24/solid'
+<script setup>
 import TheLogo from './TheLogo.vue'
 import TheHeaderProgress from './TheHeaderProgress.vue'
+
+const emit = defineEmits(['goToTimeline', 'goToProgress'])
 </script>
 
-<template lang="pug">
-
-header.header().shadow--bottom 
-  TheLogo
-  TheHeaderProgress
-
+<template>
+  <header class="sticky top-0 z-20 flex items-center justify-between border-b bg-white p-3">
+    <TheLogo @click="emit('goToTimeline')" />
+    <TheHeaderProgress @click="emit('goToProgress')" />
+  </header>
 </template>
-
-<style scoped lang="scss">
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  align-items: center;
-  padding: 0.75rem;
-  background-color: $white;
-}
-</style>

@@ -1,51 +1,17 @@
-<script setup lang="ts">
+<script setup>
 import { CheckCircleIcon } from '@heroicons/vue/24/solid'
+import { PAGE_PROGRESS } from '../constants'
 </script>
 
-<template lang="pug">
-
-.complete(v-if="true")
-  div Day complete!
-  CheckCircleIcon.icon__check-circle
-.progress(v-else) 
-  div Progress: 
-  span 20%
-  .round
-
+<template>
+  <a :href="`#${PAGE_PROGRESS}`" class="text-sm">
+    <div v-if="false" class="flex items-center gap-1">
+      Day complete!
+      <CheckCircleIcon class="h-7 text-green-500" />
+    </div>
+    <div v-else class="flex items-center gap-1">
+      <div>Progress: <span class="font-mono">20%</span></div>
+      <div class="h-3 w-3 rounded-full bg-red-500"></div>
+    </div>
+  </a>
 </template>
-<style scoped lang="scss">
-.complete {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  div {
-    font-size: 1rem;
-    line-height: 1.25rem;
-  }
-  .icon__check-circle {
-    height: 1.75rem;
-    color: #10b981;
-  }
-}
-
-.progress {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-
-  div {
-    span {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-  }
-
-  .round {
-    height: 0.75rem;
-    width: 0.75rem;
-    border-radius: 9999px;
-    background-color: #ef4444;
-  }
-}
-</style>

@@ -1,12 +1,9 @@
-<script setup lang="ts"></script>
-<template lang="pug">
-a(href="#")
-  img.logo(src="../assets/logo.png", alt="Logo")
-a(href="#")
-  
+<script setup>
+import { PAGE_TIMELINE } from '../constants'
+</script>
+
+<template>
+  <a :href="`#${PAGE_TIMELINE}`">
+    <img src="../assets/logo.png" alt="Logo" class="h-9" />
+  </a>
 </template>
-<style scoped lang="scss">
-.logo {
-  height: 2.25rem;
-}
-</style>

@@ -1,5 +1,9 @@
-@import './variables.scss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@import './variables.scss';
+// TODO: Убрать лишнее
 #app {
   display: flex;
   flex-direction: column;

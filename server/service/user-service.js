@@ -1,4 +1,5 @@
 import UserModel from '../models/user-model'
+import bcrypt from 'bcrypt'
 
 class UserService {
   async registration(email, password) {
@@ -8,7 +9,9 @@ class UserService {
       throw new Error(`Пользователь с почтовым адрессом ${email}, уже существует`)
     }
 
-    const user = await UserModel.create({ email, password })
+    const hashPassword = await bcrypt.hash(password, 3)
+
+    const user = await UserModel.create({ email, hashPassword })
 
     // TODO: NODEMAILLER двух-этапную аутентификацию
   }

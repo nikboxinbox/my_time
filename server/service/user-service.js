@@ -14,6 +14,7 @@ class UserService {
 
     const hashPassword = await bcrypt.hash(password, 3)
     const activationLink = v4()
+    // FIXME: create() выдает ошибку : User validation failed: password: Path `password` is required !
     const user = await UserModel.create({ email, hashPassword, activationLink })
     await mailService.sendActivationMail(email, activationLink)
     // TODO: NODEMAILLER двух-этапную аутентификацию

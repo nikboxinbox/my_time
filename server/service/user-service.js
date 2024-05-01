@@ -1,9 +1,9 @@
-import UserModel from '../models/user-model'
+import UserModel from '../models/user-model.js'
 import bcrypt from 'bcrypt'
-import uuid from 'uuid'
-import mailService from './mail-service'
-import tokenService from './token-service'
-import UserDto from '../dtos/user.dto'
+import { v4 } from 'uuid'
+import mailService from './mail-service.js'
+import tokenService from './token-service.js'
+import UserDto from '../dtos/user.dto.js'
 class UserService {
   async registration(email, password) {
     const candidate = await UserModel.findOne({ email })
@@ -13,7 +13,7 @@ class UserService {
     }
 
     const hashPassword = await bcrypt.hash(password, 3)
-    const activationLink = uuid.v4()
+    const activationLink = v4()
     const user = await UserModel.create({ email, hashPassword, activationLink })
     await mailService.sendActivationMail(email, activationLink)
     // TODO: NODEMAILLER двух-этапную аутентификацию
@@ -26,4 +26,4 @@ class UserService {
   }
 }
 
-export default UserService
+export default new UserService()

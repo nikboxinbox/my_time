@@ -1,4 +1,3 @@
-import { sign } from 'crypto'
 import jwt from 'jsonwebtoken'
 import tokenModel from '../models/token-model'
 

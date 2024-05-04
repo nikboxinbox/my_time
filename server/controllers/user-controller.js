@@ -1,7 +1,7 @@
 import userService from '../service/user-service.js'
 
 class UserController {
-  async registration(req, res, next) {
+  async registration(req, res, /*next*/) {
     try {
       const { email, password } = req.body
       const userData = await userService.registration(email, password)
@@ -10,7 +10,6 @@ class UserController {
         httpOnly: true
         // If https, flag secure.
       })
-      console.log(next)
       return res.json(userData)
     } catch (err) {
       console.error(err)

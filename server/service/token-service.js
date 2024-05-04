@@ -12,14 +12,15 @@ class TockenService {
   }
 
   async saveToken(userId, refreshToken) {
-    const tokenData = tokenModel.findOne({ user: userId })
+    const tokenData = await tokenModel.findOne({ user: userId })
 
     if (tokenData) {
       tokenData.refreshToken = refreshToken
       return tokenData.save()
+      // FIXME: save is depricated and use replaceOne()
     }
 
-    const token = tokenModel.create({ user: userId, refreshToken })
+    const token = await tokenModel.create({ user: userId, refreshToken })
     return token
   }
 

@@ -6,7 +6,7 @@ const router = new Router()
 router.post('/registration', userController.registration)
 router.post('/login')
 router.post('/logout')
-router.post('/activate/:link')
+router.post('/activate/:link', userController.activate)
 router.post('/refresh')
 router.post('/users')
 

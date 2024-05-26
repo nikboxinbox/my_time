@@ -19,7 +19,7 @@ class MailService {
         text: '',
         html: `<div>
           <h1>Для активации пройдите по ссылке</h1>
-          <a href="${link}"></a>
+          <a href="${link}">Ссылка для активации</a>
         </div>
         `
       })

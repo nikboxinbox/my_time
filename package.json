@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.1.5",
     "vue": "^3.3.4",
     "vue-pug-plugin": "^2.0.3"
   },
